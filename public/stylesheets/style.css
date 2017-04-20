@@ -1,0 +1,12 @@
+body {
+	padding: 50px;
+	font: 14px "Ubuntu", Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+
+h1 {
+	font-size: 40px;
+}
+a {
+	color: #00B7FF;
+}

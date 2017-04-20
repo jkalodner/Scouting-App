@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	h1=title
+	form(name="addteam", method="post", action="/addteam")
+		| Team Number: 
+		input(type="number", name="teamno")
+		br
+		h2="Autonomous"
+		| Has autonomous: 
+		input(type="checkbox", name="autonexist")
+		br
+		| # of balls shot: 
+		input(type="number", name="autonballs")
+		br
+		| ball shot consistency (%): 
+		input(type="number", name="autonballs100")
+		br
+		| # of beacons: 
+		input(type="number", name="autonbeacons")
+		br
+		| beacon consistency (%): 
+		input(type="number", name="autonbeacons100")
+		br
+		| Cap ball: 
+		input(type="checkbox", name="autoncap")
+		br
+		| Partial park: 
+		input(type="checkbox", name="autonpark")
+		br
+		| Average points scored: 
+		input(type="number", name="autonavg")
+		br
+		| Overall consistency (%): 
+		input(type="number", name="auton100")
+		br
+		h2="TeleOp"
