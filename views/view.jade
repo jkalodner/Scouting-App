@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	h1= title
+	h2 Autonomous
+	p="Balls: " + view[0].autonballs + ", " + view[0].autonballs100 +"% of the time"
+	p="Beacons: " + view[0].autonbeacons + ", " + view[0].autonbeacons100 + "% of the time"
+	p="Cap: " + view[0].autoncap
+	p="Park: " + view[0].autonpark
+	p="Average: " +view[0].autonavg
+	p="Consistency: " +view[0].auton100 + "%"
+	h2 TeleOp
+	p="Focus: " + view[0].focus
+	p="Balls: " +view[0].shoot+ ", " +view[0].avgballs
+	p="Cap: " +view[0].cap + ", " +view[0].cap100 +"% of the time"
+	p="Beacons: " + view[0].beacons
+	p="Corner Goals: " + view[0].corners
+	p="Average Score: " + view[0].avg
+	h2 Scouter's Report
+	p="Autonomous Rating: " +view[0].autonrate
+	p="TeleOp Rating: " + view[0].teleoprate
+	p="Shot Rating: " + view[0].shotrate
+	p="Cap Rating: " +view[0].caprate
+	p="Avg # of balls shot: " + view[0].ballno
+	p="Scouter's Comments: " +view[0].comments
+	a(href="/teamlist") back

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1 Team List
+	table
+		tr
+			th Team #
+			th Name
+			th Focus
+			th View
+			th Edit
+		each user, i in teamlist
+			tr
+				td=user.team
+				td=user.teamname
+				td=user.focus
+				td
+					a(href="#{user._id}/view") view
+				td
+					a(href="#{user._id}/edit") edit

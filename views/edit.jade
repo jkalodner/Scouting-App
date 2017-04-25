@@ -1,0 +1,111 @@
+extends layout
+
+block content
+	h1= "Editing " + title
+	form(name="updateteam", method="post", action="./updateteam")
+		| Team Number: 
+		input(type="number", name="teamno", value=edit[0].team)
+		br
+		| Team Name:
+		input(type="text", name="teamname", value=edit[0].teamname)
+		br
+		h2 Autonomous
+		| # of balls shot: 
+		input(type="number", name="autonballs", value=edit[0].autonballs)
+		br
+		| ball shot consistency (%): 
+		input(type="number", max="100", name="autonballs100", value=edit[0].autonballs100)
+		br
+		| # of beacons: 
+		input(type="number", name="autonbeacons", value=edit[0].autonbeacons)
+		br
+		| beacon consistency (%): 
+		input(type="number", max="100", name="autonbeacons100", value=edit[0].autonbeacons100)
+		br
+		| Cap ball: 
+		|Yes 
+		input(type="radio", name="autoncap", value="yes", checked=aCap)
+		|No 
+		input(type="radio", name="autoncap", value="no", checked=!aCap)
+		br
+		| Partial park: 
+		|Yes 
+		input(type="radio", name="autonpark", value="yes", checked=park)
+		|No 
+		input(type="radio", name="autonpark", value="no", checked=!park)
+		br
+		| Average points scored: 
+		input(type="number", name="autonavg", value=edit[0].autonavg)
+		br
+		| Overall consistency (%): 
+		input(type="number", max="100", name="auton100", value=edit[0].auton100)
+		br
+		h2 TeleOp
+		p The robot can:
+		| Shoot: 
+		|Yes 
+		input(type="radio", name="shoot", value="yes", checked=shoot)
+		|No 
+		input(type="radio", name="shoot", value="no", checked=!shoot)
+		br
+		| Cap: 
+		|Yes 
+		input(type="radio", name="cap", value="yes", checked=cap)
+		|No 
+		input(type="radio", name="cap", value="no", checked=!cap)
+		br
+		| Score Beacons: 
+		|Yes 
+		input(type="radio", name="beacons", value="yes", checked=beacons)
+		| No 
+		input(type="radio", name="beacons", value="no", checked=!beacons)
+		br
+		| Score in corners: 
+		|Yes 
+		input(type="radio", name="corners", value="yes", checked=corners)
+		|No 
+		input(type="radio", name="corners", value="no", checked=!corners)
+		br
+		| The robot's main focus is: 
+		br
+		| Shooting 
+		input(type="radio", name="main", value="shooting", checked=mShoot)
+		| 
+		| Capping 
+		input(type="radio", name="main", value="capping", checked=mCap)
+		| 
+		| Beacons 
+		input(type="radio", name="main", value="beaconsmain", checked=mBeacons)
+		| 
+		| Corner Goals 
+		input(type="radio", name="main", value="cornersmain", checked=mCorners)
+		br
+		| Avg # of balls shot in TeleOp: 
+		input(type="number", name="ballsteleop", value=edit[0].avgballs)
+		br
+		| Consistency of Cap (%): 
+		input(type="number", max="100", name="cap100", value=edit[0].cap100)
+		br
+		| Average Score: 
+		input(type="number", name="avg", value=edit[0].avg)
+		h2 Scouter's Report
+		p On a scale of 1-10, with 10 being the best, rate the below.
+		| Autonomous performace: 
+		input(type="number", min="1", max="10", name="autonrate", value=edit[0].autonrate)
+		br
+		| TeleOp peformance: 
+		input(type="number", min="1", max="10", name="teleoprate", value=edit[0].teleoprate)
+		br
+		| Shooting: 
+		input(type="number", min="1", max="10", name="shotrate", value=edit[0].shotrate)
+		br
+		| Capping: 
+		input(type="number", min="1", max="10", name="caprate", value=edit[0].caprate)
+		br
+		| # of balls scored:
+		input(type="number", name="scoreballs", value=edit[0].ballno)
+		p Any additional comments:
+		textarea(name="comments", cols="50", rows="10")= edit[0].comments
+		br
+		br
+		button(type="submit") Submit

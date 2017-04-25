@@ -6,10 +6,10 @@ block content
 		| Team Number: 
 		input(type="number", name="teamno")
 		br
-		h2 Autonomous
-		| Has autonomous: 
-		input(type="checkbox", name="autonexist")
+		| Team Name:
+		input(type="text", name="teamname")
 		br
+		h2 Autonomous
 		| # of balls shot: 
 		input(type="number", name="autonballs")
 		br
@@ -23,10 +23,16 @@ block content
 		input(type="number", max="100", name="autonbeacons100")
 		br
 		| Cap ball: 
-		input(type="checkbox", name="autoncap")
+		|Yes 
+		input(type="radio", name="autoncap", value="yes")
+		|No 
+		input(type="radio", name="autoncap", value="no")
 		br
 		| Partial park: 
-		input(type="checkbox", name="autonpark")
+		|Yes 
+		input(type="radio", name="autonpark", value="yes")
+		|No 
+		input(type="radio", name="autonpark", value="no")
 		br
 		| Average points scored: 
 		input(type="number", name="autonavg")
@@ -35,32 +41,43 @@ block content
 		input(type="number", max="100", name="auton100")
 		br
 		h2 TeleOp
-		The robot can:
-		br
+		p The robot can:
 		| Shoot: 
-		input(type="checkbox", name="shoot")
+		|Yes 
+		input(type="radio", name="shoot", value="yes")
+		|No 
+		input(type="radio", name="shoot", value="no")
 		br
 		| Cap: 
-		input(type="checkbox", name="cap")
+		|Yes 
+		input(type="radio", name="cap", value="yes")
+		|No 
+		input(type="radio", name="cap", value="no")
 		br
 		| Score Beacons: 
-		input(type="checkbox", name="beacons")
+		|Yes 
+		input(type="radio", name="beacons", value="yes")
+		| No 
+		input(type="radio", name="beacons", value="no")
 		br
 		| Score in corners: 
-		input(type="checkbox", name="corners")
+		|Yes 
+		input(type="radio", name="corners", value="yes")
+		|No 
+		input(type="radio", name="corners", value="no")
 		br
 		| The robot's main focus is: 
 		br
 		| Shooting 
 		input(type="radio", name="main", value="shooting")
 		| 
-		| Capping
+		| Capping 
 		input(type="radio", name="main", value="capping")
 		| 
-		| Beacons
+		| Beacons 
 		input(type="radio", name="main", value="beaconsmain")
 		| 
-		| Corner Goals
+		| Corner Goals 
 		input(type="radio", name="main", value="cornersmain")
 		br
 		| Avg # of balls shot in TeleOp: 
@@ -69,6 +86,8 @@ block content
 		| Consistency of Cap (%): 
 		input(type="number", max="100", name="cap100")
 		br
+		| Average Score: 
+		input(type="number", name="avg")
 		h2 Scouter's Report
 		p On a scale of 1-10, with 10 being the best, rate the below.
 		| Autonomous performace: 
@@ -83,6 +102,8 @@ block content
 		| Capping: 
 		input(type="number", min="1", max="10", name="caprate")
 		br
+		| # of balls scored:
+		input(type="number", name="scoreballs")
 		p Any additional comments:
 		textarea(name="comments", cols="50", rows="10")
 		br
