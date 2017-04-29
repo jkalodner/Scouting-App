@@ -24,6 +24,10 @@ router.get('/newteam', function(req, res){
 	res.render('newteam', { title: 'Add New Team' });
 });
 
+router.get('/teamsearch', function(req, res){
+	res.render('teamsearch', { title: 'Search'});
+});
+
 router.get('/:teamId/view', function(req, res){
 	var db = req.db;
 	var collection = db.get('teams');
@@ -36,39 +40,22 @@ router.get('/:teamId/view', function(req, res){
 	});
 });
 
+
 router.get('/:teamId/edit', function(req, res){
 	var db = req.db;
 	var collection = db.get('teams');
 	var teamId = req.params.teamId;
 	collection.find({_id: teamId}, function(e, docs){
-		var aCap = false;
-		var park = false;
-		var shoot = false;
-		var cap = false;
-		var beacons = false;
-		var corners = false;
 		var mShoot = false;
 		var mCap = false;
 		var mBeacons = false;
 		var mCorners = false;
-		if(docs[0].autoncap == "yes"){
-			aCap=true;
-		}
-		if(docs[0].autonpark == "yes"){
-			park=true;
-		}
-		if(docs[0].shoot == "yes"){
-			shoot=true;
-		}
-		if(docs[0].cap == "yes"){
-			cap=true;
-		}
-		if(docs[0].beacons == "yes"){
-			beacons=true;
-		}
-		if(docs[0].corners == "yes"){
-			corners=true;
-		}
+		var aCap = mc(docs[0].autoncap);
+		var park = mc(docs[0].autonpark);
+		var shoot = mc(docs[0].shoot);
+		var cap = mc(docs[0].cap);
+		var beacons = mc(docs[0].beacons);
+		var corners = mc(docs[0].corners)
 		if(docs[0].focus == "shooting"){
 			mShoot=true;
 		} else if(docs[0].focus == "capping"){
@@ -200,7 +187,7 @@ router.post('/addteam', function(req, res) {
 
 	collection.insert({
 		"team" : teamNo,
-		"teamname" :teamName,
+		"teamname" : teamName,
 		"autonballs" : autonBalls,
 		"autonballs100" : autonBallsConsist,
 		"autonbeacons" : autonBeacons,
@@ -231,5 +218,15 @@ router.post('/addteam', function(req, res) {
 		}
 	});
 });
+
+function mc (docsparam){
+	var temp;
+	if(docsparam == "yes"){
+		temp = true;
+	} else {
+		temp = false;
+	}
+	return temp;
+}
 
 module.exports = router;
